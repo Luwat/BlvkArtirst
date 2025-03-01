@@ -7,7 +7,7 @@ const Footer = () => {
     {
       icon: <FaDiscord size={24} />,
       label: "Discord",
-      href: "https://x.com/blvkartist",
+      href: "https://discordapp.com/users/blvkartist4777",
       color: "hover:text-blue-400",
     },
     {
