@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X, ChevronRight } from 'lucide-react';
+import { useState, useEffect } from "react";
+import { Menu, X, ChevronRight } from "lucide-react";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -8,12 +8,12 @@ const Navbar = () => {
   // Prevent body scroll when menu is open
   useEffect(() => {
     if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     }
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     };
   }, [isMenuOpen]);
 
@@ -22,27 +22,28 @@ const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navLinks = [
-    { href: '/work', label: 'Portfolio' },
-    { href: '/about', label: 'About' },
-    { href: '/services', label: 'Services' },
+    { href: "/#work", label: "Portfolio" },
+    { href: "/#about", label: "About" },
   ];
 
   return (
     <>
-      <nav className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-black/95 backdrop-blur-sm shadow-lg' : 'bg-black'
-      }`}>
+      <nav
+        className={`fixed w-full z-50 transition-all duration-300 ${
+          isScrolled ? "bg-black/95 backdrop-blur-sm shadow-lg" : "bg-black"
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <a href="/" className="flex items-center space-x-2">
+            <a href="/#home" className="flex items-center space-x-2">
               <span className="text-white font-bold text-2xl">
-                Ayo<span className="text-purple-500">.</span>
+                BlvkArtist<span className="text-purple-500">.</span>
               </span>
             </a>
 
@@ -59,10 +60,10 @@ const Navbar = () => {
                 </a>
               ))}
               <a
-                href="/contact"
+                href="#"
                 className="px-6 py-2 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition-all duration-300 hover:scale-105 active:scale-95"
               >
-                Let's Talk
+                Let&apos;s Talk
               </a>
             </div>
 
@@ -84,16 +85,18 @@ const Navbar = () => {
         {/* Mobile Menu Overlay */}
         <div
           className={`fixed inset-0 min-h-screen w-full bg-black transition-all duration-500 md:hidden ${
-            isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full'
+            isMenuOpen
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 -translate-y-full"
           }`}
-          style={{ 
-            position: 'fixed',
+          style={{
+            position: "fixed",
             top: 0,
             left: 0,
             right: 0,
             bottom: 0,
             zIndex: 40,
-            display: isMenuOpen ? 'block' : 'none'
+            display: isMenuOpen ? "block" : "none",
           }}
         >
           <div className="flex flex-col items-center justify-center min-h-screen space-y-8 p-4">
@@ -105,7 +108,7 @@ const Navbar = () => {
                   className="group flex items-center justify-between w-full p-4 text-white text-2xl hover:text-purple-500 transition-all duration-300 transform hover:translate-x-2"
                   onClick={() => setIsMenuOpen(false)}
                   style={{
-                    animation: `slideIn 0.5s ease-out ${index * 0.1}s both`
+                    animation: `slideIn 0.5s ease-out ${index * 0.1}s both`,
                   }}
                 >
                   <span>{label}</span>
@@ -114,14 +117,14 @@ const Navbar = () => {
               ))}
               <div className="pt-6">
                 <a
-                  href="/contact"
+                  href="#"
                   className="block w-full text-center px-8 py-4 bg-purple-600 text-white text-xl rounded-full hover:bg-purple-700 transition-all duration-300 transform hover:scale-105 active:scale-95"
                   onClick={() => setIsMenuOpen(false)}
                   style={{
-                    animation: 'slideIn 0.5s ease-out 0.3s both'
+                    animation: "slideIn 0.5s ease-out 0.3s both",
                   }}
                 >
-                  Let's Talk
+                  Let&apos;s Talk
                 </a>
               </div>
             </div>
@@ -129,8 +132,7 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Add global styles for animations */}
-      <style jsx global>{`
+      <style>{`
         @keyframes slideIn {
           from {
             opacity: 0;
